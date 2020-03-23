@@ -23,7 +23,7 @@
       font-size: 13px;
       font-family: 'Open Sans Condensed', Arial, sans-serif;
       color: #2D2D2D;
-      background-color: #EAF2E8;
+      background-color: #F5F5FF;
     }
 
     .homelinks a {
@@ -50,7 +50,7 @@
     a {
       font-size: 13px;
       font-family: 'Open Sans Condensed', Arial, sans-serif;
-      color: #2C4031;
+      color: #99A8C4;
       text-decoration: none;
       -moz-transition-duration: 0.5s;
       -o-transition-duration: 0.5s;
@@ -146,7 +146,7 @@
 
     .homelinks a:hover {
       padding: 3px;
-      background-color: #A3CCB8;
+      background-color: #E8EBFF;
       color: #fff;
     }
 
@@ -198,18 +198,14 @@
     }
 
     .question {
+      font-style: italic;
       font-size: 13px;
       padding: 5px;
-      background-color: #EAF2E8;
+      background-color: #E8EBFF;
     }
 
     .posts li {
       list-style: square;
-    }
-
-    .posts blockquote {
-      border-left: 1px solid #D5E6DB;
-      padding-left: 5px;
     }
 
     .posts img,
@@ -249,6 +245,27 @@
       -moz-opacity: 0.7;
       -khtml-opacity: 0.7;
     }
+    
+    blockquote {
+        display: hidden;
+    }
+    
+    blockquote blockquote {
+      font-size: 13px;
+      border-left: 1px solid #E8EBFF;
+      padding-left: 5px;
+    }
+    
+    .quote {
+      font-size: 30px;  
+      font-family: 'Satisfy', Arial, serif;
+    }
+    
+    .source {
+      margin-left: 15px;
+      color: #B3C4E6;
+    }
+    
 
     .tags {
       border-top: 0.5px solid #D5E6DB;
@@ -260,7 +277,7 @@
     .tags a:hover {
       color: {descriptiontext};
       padding: 1px;
-      background-color: #A3CCB8;
+      background-color: #E8EBFF;
       color: #fff;
     }
   </style>
@@ -296,6 +313,7 @@
 
     <div class="postcol">
       {block:Posts}
+      
       <div class="posts">
         {block:Text}
         {block:Title}<h2>{Title}</h2>{/block:Title}
@@ -303,16 +321,15 @@
         {/block:Text}
         {block:Answer}
         <div class="question">
-          <img src="{AskerPortraitURL-40}">
-          {Asker} asked: {Question}
+          <img src="{AskerPortraitURL-40}"> {Asker} asked: {Question}
         </div>
         {Answer}
         {/block:Answer}
         {block:Quote}
         <div class="quote">
           <div class="quotetext_{Length}">"{Quote}"</div>
-          {block:Source}<div class="source">{Source}</div>{/block:Source}
         </div>
+        {block:Source}<div class="source">{Source}</div>{/block:Source}
         {/block:Quote}
         {block:Link}
         <h2><a href="{URL}" class="article">{Name}</a></h2>
@@ -347,7 +364,11 @@
         </div>
         {/block:HasTags}
       </div>
+
       {/block:Posts}
+      
+
+
     </div>
 
 
