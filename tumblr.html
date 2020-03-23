@@ -1,0 +1,357 @@
+<html>
+
+<head>
+
+  <title>{Title}{block:PostSummary} | {PostSummary}{/block:PostSummary}</title>
+  <link rel="shortcut icon" href="{Favicon}">
+  <link rel="alternate" type="application/rss+xml" href="{RSS}">
+  {block:Description}
+  <meta name="description" content="{MetaDescription}" />
+  {/block:Description}
+
+  <meta name="color:descriptiontext" content="" />
+  <meta name="text:blogtitle" content="" />
+  <meta name="image:sidebarimg" content="" />
+
+  <script type="text/javascript" src="https://static.tumblr.com/iuggpng/bGqm4yfv9/jquery-1.7.2.js"></script>
+
+  <style type="text/css">
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i|Satisfy&display=swap');
+
+
+    body {
+      font-size: 13px;
+      font-family: 'Open Sans Condensed', Arial, sans-serif;
+      color: #2D2D2D;
+      background-color: #EAF2E8;
+    }
+
+    .homelinks a {
+      color: #2D2D2D;
+      text-decoration: none;
+      -moz-transition: 0.5s;
+      -o-transition-duration: 0.5s;
+      -webkit-transition-duration: 0.5s;
+      transition-duration: 0.5s;
+    }
+
+    .homelinks a:hover {
+      color: #5D9F6F;
+      -moz-transition: 0.5s;
+      -o-transition-duration: 0.5s;
+      -webkit-transition-duration: 0.5s;
+      transition-duration: 0.5s;
+    }
+
+    .article {
+      font-size: 20px;
+    }
+
+    a {
+      font-size: 13px;
+      font-family: 'Open Sans Condensed', Arial, sans-serif;
+      color: #2C4031;
+      text-decoration: none;
+      -moz-transition-duration: 0.5s;
+      -o-transition-duration: 0.5s;
+      -webkit-transition-duration: 0.5s;
+      transition-duration: 0.5s;
+    }
+
+    a:hover {
+      color: #000;
+      -moz-transition-duration: 0.5s;
+      -o-transition-duration: 0.5s;
+      -webkit-transition-duration: 0.5s;
+      transition-duration: 0.5s;
+    }
+
+    .container {
+      width: 1000px;
+      margin: auto;
+    }
+
+    .sidebar {
+      width: 370px;
+      height: auto;
+      position: fixed;
+      padding: 10px;
+      background-color: #fff;
+    }
+
+    .sidebarimg {
+      max-width: 330px;
+      height: auto;
+      margin: 10px auto 0 auto;
+      text-align: center;
+    }
+
+    .sidebarimage img {
+      max-width: 330px;
+      height: auto;
+    }
+
+    .blogtitle {
+      width: 330px;
+      padding: 0px;
+      height: auto;
+      font-size: 35px;
+      letter-spacing: -3px;
+      font-family: 'Satisfy', Arial, serif;
+      text-align: right;
+      font-weight: normal;
+      line-height: 30px;
+      margin: 15px auto 0 auto;
+      color: {color: title};
+    }
+
+    .blogtitle a {
+      font-size: 35px;
+      letter-spacing: -3px;
+      font-family: 'Satisfy', Arial, serif;
+      text-align: right;
+      font-weight: normal;
+      line-height: 30px;
+      color: {color: title};
+    }
+
+    .blogtitle a:hover {
+      color: {color: descriptiontext};
+    }
+
+    .desc {
+      width: 330px;
+      height: auto;
+      font-family: 'Open Sans Condensed', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+      line-height: 11px;
+      text-align: justify;
+      text-justify: distribute-all-lines;
+      margin: 15px auto 0 auto;
+      color: {color: descriptiontext};
+    }
+
+    .homelinks {
+      padding: 0px;
+      width: 330px;
+      margin: 15px auto 0 auto;
+      height: auto;
+      font-family: 'Open Sans Condensed', Arial, sans-serif;
+      font-size: 10px;
+      line-height: 11px;
+      text-align: right;
+    }
+
+
+    .homelinks a:hover {
+      padding: 3px;
+      background-color: #A3CCB8;
+      color: #fff;
+    }
+
+    #pagination {
+      width: auto;
+      height: auto;
+      text-align: right;
+      font-family: 'Arial';
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 2px 10px;
+      margin-top: 8px;
+      right: 0;
+      color: {color: descriptiontext};
+    }
+
+    #pagination a {
+      font-size: 9px;
+
+      color: {color: descriptiontext};
+    }
+
+    #pagination a:hover {
+      color: {color: bold};
+    }
+
+    #pagination b {
+      padding: 0 1px;
+    }
+
+    .postcol {
+      width: 540px;
+      margin-top: 30px;
+      margin-left: 430px;
+    }
+
+    .posts {
+      margin-bottom: 20px;
+      background-color: #fff;
+      padding: 20px;
+    }
+
+    .posts h2 {
+      font-size: 12px;
+      color: #103806;
+      font-weight: normal;
+      margin: 0px;
+    }
+
+    .question {
+      font-size: 13px;
+      padding: 5px;
+      background-color: #EAF2E8;
+    }
+
+    .posts li {
+      list-style: square;
+    }
+
+    .posts blockquote {
+      border-left: 1px solid #D5E6DB;
+      padding-left: 5px;
+    }
+
+    .posts img,
+    .posts li,
+    .posts blockquote {
+      max-width: 100%;
+    }
+
+    .posts:hover .caption {
+      display: block;
+    }
+
+    .albumart {
+      float: left;
+      margin: 7px;
+    }
+
+    .lyrics {
+      margin-left: 45px;
+      font-size: 15px;
+      font-family: 'Open Sans Condensed', Arial, sans-serif;
+    }
+
+    .audioplayer {
+      width: 30px;
+      height: 30px;
+      overflow: hidden;
+      position: absolute;
+      margin-left: 40px;
+      margin-top: 45px;
+      margin-bottom: 45px;
+      -moz-border-radius: 30px;
+      -webkit-border-radius: 30px;
+      border-radius: 30px;
+      opacity: 0.7;
+      filter: alpha(opacity=70);
+      -moz-opacity: 0.7;
+      -khtml-opacity: 0.7;
+    }
+
+    .tags {
+      border-top: 0.5px solid #D5E6DB;
+      margin-top: 15px;
+      font-style: italic;
+      font-family: 'Open Sans Condensed', Arial, sans-serif;
+    }
+
+    .tags a:hover {
+      color: {descriptiontext};
+      padding: 1px;
+      background-color: #A3CCB8;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="sidebar">
+      {block:IfSidebarimgImage}
+      <div class="sidebarimg"><img src="{image:sidebarimg}" width="330px"></div>
+      {/block:IfSidebarimgImage}
+
+      <div class="blogtitle"><a href="/">{text:blogtitle}</a></div>
+
+      {block:Description}
+      <div class="desc">{Description}</div>
+      {/block:Description}
+      <div class="homelinks">
+        <a href="/">index</a>
+        {block:AskEnabled}<a href="/ask">message</a>{/block:AskEnabled}
+        {block:SubmissionsEnabled}<a href="/submit">submit</a>{/block:SubmissionsEnabled}
+        <a href="/archive">archive</a>
+      </div>
+
+      {block:Pagination}
+      <div id="pagination">
+        {block:PreviousPage}<a href="{PreviousPage}" title="Previous Page">←</a>{/block:PreviousPage} <b>{CurrentPage}</b>/{TotalPages} {block:NextPage}<a href="{NextPage}" title="Next Page">→</a>{/block:NextPage}
+      </div>
+      {/block:Pagination}
+    </div>
+
+    <div class="postcol">
+      {block:Posts}
+      <div class="posts">
+        {block:Text}
+        {block:Title}<h2>{Title}</h2>{/block:Title}
+        {Body}
+        {/block:Text}
+        {block:Answer}
+        <div class="question">
+          <img src="{AskerPortraitURL-40}">
+          {Asker} asked: {Question}
+        </div>
+        {Answer}
+        {/block:Answer}
+        {block:Quote}
+        <div class="quote">
+          <div class="quotetext_{Length}">"{Quote}"</div>
+          {block:Source}<div class="source">{Source}</div>{/block:Source}
+        </div>
+        {/block:Quote}
+        {block:Link}
+        <h2><a href="{URL}" class="article">{Name}</a></h2>
+        {block:Description}{Description}{/block:Description}
+        {/block:Link}
+        {block:Chat}
+        {block:Title}<h2>{Title}</h2>{/block:Title}
+        <ul class="convo">{block:Lines}<li class="line">{block:Label}<span class="label">{Label}</span>{/block:Label}
+            {Line}</li>{/block:Lines}</ul>
+        {/block:Chat}
+        {block:Photo}
+        {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}">{LinkCloseTag}
+        {block:Caption}{Caption}{/block:Caption}
+        {/block:Photo}
+        {block:Photoset}
+        {Photoset-500}
+        {block:Caption}{Caption}{/block:Caption}
+        {/block:Photoset}
+        {block:Video}
+        {Video-500}
+        {block:Caption}{Caption}{/block:Caption}
+        {/block:Video}
+        {block:Audio}
+        <div class="audioplayer">{AudioPlayerWhite}</div>
+        <div class="albumart">{block:AlbumArt}<img src="{AlbumArtURL}" width="100">{/block:AlbumArt}</div>
+        {block:caption}<div class="lyrics">{caption}</div>{/block:caption}
+        {/block:Audio}
+        {block:HasTags}
+        <div class="tags">{block:Tags}
+          <a href="{TagURL}">{Tag}</a>
+          {/block:Tags}
+        </div>
+        {/block:HasTags}
+      </div>
+      {/block:Posts}
+    </div>
+
+
+  </div>
+</body>
+
+</html>
